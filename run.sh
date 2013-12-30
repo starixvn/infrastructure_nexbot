@@ -1,0 +1,1 @@
+bin/hubot -a skype &> /dev/null &
