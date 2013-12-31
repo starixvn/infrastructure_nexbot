@@ -36,7 +36,7 @@ module.exports = (robot) ->
   if process.env.HUBOT_AUTH_ADMIN?
     admins = process.env.HUBOT_AUTH_ADMIN.split ','
   else
-    admins = ['qui','quinvit']
+    admins = ['qui']
 
   class Auth
     hasRole: (user, roles) ->
