@@ -251,7 +251,7 @@ module.exports = (robot) ->
       issue = data.issue
       
       url = "#{redmine.url}/issues/#{id}"
-      msg.send "#{issue.tracker.name} <a href=\"#{url}\">##{issue.id}</a> (#{issue.project.name}): #{issue.subject} (#{issue.status.name}) [#{issue.priority.name}]"
+      # msg.send "#{issue.tracker.name} <a href=\"#{url}\">##{issue.id}</a> (#{issue.project.name}): #{issue.subject} (#{issue.status.name}) [#{issue.priority.name}]"
 
 # simple ghetto fab date formatter this should definitely be replaced, but didn't want to
 # introduce dependencies this early
