@@ -6,4 +6,4 @@ export PATH=$BASEDIR/node_modules/.bin:$BASEDIR/node_modules/hubot/node_modules/
 
 cd $BASEDIR
 
-sh $BASEDIR/bin/hubot --name nexbot -a skype --debug
+sh $BASEDIR/bin/hubot --name nexbot -a skype

@@ -95,7 +95,7 @@ module.exports = (robot) ->
     firstName =
       if msg.match[1]?
         userMode = false
-        msg.match[1].replace(/\'.+/, '')
+        msg.match[1].replace(/\'.+/, '').replace(/<(?:.|\n)*?>/gm, '')
       else
         msg.message.user.name.split(/\s/)[0]
 
