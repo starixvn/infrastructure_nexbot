@@ -95,7 +95,7 @@ module.exports = (robot) ->
     firstName =
       if msg.match[1]?
         userMode = false
-        msg.match[1].replace(/\'.+/, '').replace(/<(?:.|\n)*?>/gm, '')
+        msg.match[1].replace(/\'.+/, '')
       else
         msg.message.user.name.split(/\s/)[0]
 
@@ -125,7 +125,7 @@ module.exports = (robot) ->
 
           for issue in data.issues
             do (issue) ->
-              _.push "\n[#{issue.tracker.name} - #{issue.priority.name} - #{issue.status.name}] ##{issue.id}: #{issue.subject}"
+              _.push "[#{issue.tracker.name} - #{issue.priority.name} - #{issue.status.name}] ##{issue.id}: #{issue.subject}  #{redmine.url}/issues/#{issue.id}"
 
           msg.reply _.join "\n"
 
@@ -215,16 +215,16 @@ module.exports = (robot) ->
       if issue.status.name.toLowerCase() != 'new'
          _.push "Progress: #{issue.done_ratio}% (#{issue.spent_hours} hours)"
       _.push "Subject: #{issue.subject}"
-      _.push "\n#{issue.description}"
+      _.push "\n#{redmine.url}/issues/#{id}"
 
       # journals
-      _.push "\n" + Array(10).join('-') + '8<' + Array(50).join('-') + "\n"
-      for journal in issue.journals
-        do (journal) ->
-          if journal.notes? and journal.notes != ""
-            date = formatDate journal.created_on, 'mm/dd/yyyy (hh:ii ap)'
-            _.push "#{journal.user.name} on #{date}:"
-            _.push "    #{journal.notes}\n"
+      # _.push "\n" + Array(10).join('-') + '8<' + Array(50).join('-') + "\n"
+      # for journal in issue.journals
+      #   do (journal) ->
+      #     if journal.notes? and journal.notes != ""
+      #       date = formatDate journal.created_on, 'mm/dd/yyyy (hh:ii ap)'
+      #       _.push "#{journal.user.name} on #{date}:"
+      #       _.push "    #{journal.notes}\n"
 
       msg.reply _.join "\n"
 
