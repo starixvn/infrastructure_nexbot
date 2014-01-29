@@ -29,6 +29,7 @@ querystring = require 'querystring'
 jobList = []
 
 process.env.HUBOT_JENKINS_URL = "http://ci.nexcel.vn"
+process.env.HUBOT_JENKINS_AUTH = "jenkins.ci@nexcel.vn:sunrise"
 
 jenkinsBuildById = (msg) ->
   # Switch the index with the job name
